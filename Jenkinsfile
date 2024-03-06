@@ -95,16 +95,16 @@ pipeline {
                      aws deploy create-deployment-group \
                      --application-name aws11-code-deploy \
                      --auto-scaling-groups aws11-asg \
-                     --deployment-group-name aws00-code-deploy-${BUILD_NUMBER} \
+                     --deployment-group-name aws11-code-deploy-${BUILD_NUMBER} \
                      --deployment-config-name CodeDeployDefault.OneAtATime \
                      --service-role-arn arn:aws:iam::257307634175:role/aws11-codedeploy-service-role
                      '''
                  echo "Codedeploy Workload"   
                  sh '''
-                     aws deploy create-deployment --application-name aws00-code-deploy \
+                     aws deploy create-deployment --application-name aws11-code-deploy \
                      --deployment-config-name CodeDeployDefault.OneAtATime \
-                     --deployment-group-name aws00-code-deploy-${BUILD_NUMBER} \
-                     --s3-location bucket=aws00-codedeploy-bucket,bundleType=zip,key=deploy.zip
+                     --deployment-group-name aws11-code-deploy-${BUILD_NUMBER} \
+                     --s3-location bucket=aws11-codedeploy-bucket,bundleType=zip,key=deploy.zip
                      '''
                      sleep(10) // sleep 10s
              }
