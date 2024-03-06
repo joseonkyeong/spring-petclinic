@@ -99,7 +99,7 @@ pipeline {
                     --auto-scaling-groups aws11-asg \
                     --deployment-group-name aws11-code-deploy-${BUILD_NUMBER} \
                     --deployment-config-name CodeDeployDefault.OneAtATime \
-                    --service-role-arn arn:aws:iam::257307634175:role/aws00-codedeploy-service-role
+                    --service-role-arn arn:aws:iam::257307634175:role/aws11-codedeploy-service-role
                     '''
                 echo "Codedeploy Workload"   
                 sh '''
